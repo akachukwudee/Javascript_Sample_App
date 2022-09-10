@@ -4,56 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>JavaScript Form</title>
+    <title>Sample JavaScript Form</title>
     <link rel="stylesheet" href="style.css">
-  </head>
-  <script>
-    function editProfile() {
-       document.querySelector('.container').style.display = 'none'
-       document.querySelector('.edit-container').style.display = 'block'
-
-       const fname = document.querySelector('#fname').textContent
-       document.querySelector('#input-fname').value = fname
-
-       const lname = document.querySelector('#lname').textContent
-       document.querySelector('#input-lname').value = lname
-
-       const email = document.querySelector('#email').textContent
-       document.querySelector('#input-email').value = email
-
-       const dob = document.querySelector('#dob').textContent
-       document.querySelector('#input-dob').value = dob
-    }
-
-    function saveProfile() {
-       document.querySelector('#fname').textContent = document.querySelector('#input-fname').value
-       document.querySelector('#lname').textContent = document.querySelector('#input-lname').value
-       document.querySelector('#email').textContent = document.querySelector('#input-email').value
-       document.querySelector('#dob').textContent = document.querySelector('#input-dob').value
-
-       document.querySelector('.container').style.display = 'block'
-       document.querySelector('.edit-container').style.display = 'none'
-    }
-  </script>
-  
-  <style>
-    input {
-      width: 30%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      box-sizing: border-box;
-    }
-    input[type=text]:focus {
-      border: 3px solid #555;
-    }
-    img {
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      padding: 5px;
-      width: 150px;
-    }
-  </style>
-
+  </head>  
   <body>	
     <div class='container'>
       <h1 id='header'>User Data</h1>
@@ -86,5 +39,6 @@
       <hr />
       <button class='button' onclick="saveProfile()">Save Profile</button>
     </div>
+    <script src="index.js"></script>
   </body>
 </html>

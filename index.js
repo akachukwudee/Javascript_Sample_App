@@ -1,18 +1,26 @@
-var express = require('express');
-var path = require('path');
-var fs = require('fs');
-var app = express();
+function editProfile() {
+    document.querySelector('.container').style.display = 'none'
+    document.querySelector('.edit-container').style.display = 'block'
 
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, "index.html"));
-});
+    const fname = document.querySelector('#fname').textContent
+    document.querySelector('#input-fname').value = fname
 
-app.get('/profile-picture', function (req, res) {
-    var img = fs.readFileSync('Selfie.jpeg');
-    res.writeHead(200, {'Content-Type': 'image/jpeg' });
-    res.end(img, 'binary');
-});
+    const lname = document.querySelector('#lname').textContent
+    document.querySelector('#input-lname').value = lname
 
-app.listen(3000, function () {
-    console.log("app listening on port 3000!");
-});
+    const email = document.querySelector('#email').textContent
+    document.querySelector('#input-email').value = email
+
+    const dob = document.querySelector('#dob').textContent
+    document.querySelector('#input-dob').value = dob
+ }
+
+ function saveProfile() {
+    document.querySelector('#fname').textContent = document.querySelector('#input-fname').value
+    document.querySelector('#lname').textContent = document.querySelector('#input-lname').value
+    document.querySelector('#email').textContent = document.querySelector('#input-email').value
+    document.querySelector('#dob').textContent = document.querySelector('#input-dob').value
+
+    document.querySelector('.container').style.display = 'block'
+    document.querySelector('.edit-container').style.display = 'none'
+ }
