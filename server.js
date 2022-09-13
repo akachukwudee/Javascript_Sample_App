@@ -20,7 +20,7 @@ app.get('/get-profile', function (req, res) {
     MongoClient.connect('mongodb://admin:password@localhost:27017', function (err, client) {
         if (err) throw err;
 
-        var db = client.db('user-account');
+        var db = client.db('my-db');
         var query = { userid: 1 };
         db.collection('users').findOne(query, function (err, result) {
             if (err) throw err;
@@ -39,12 +39,12 @@ app.post('/update-profile', function (req, res) {
     MongoClient.connect('mongodb://admin:password@localhost:27017', function (err, client) {
         if (err) throw err;
 
-        var db = client.db('user-account');
+        var db = client.db('my-db');
         userObj ['userid'] = 1
         var query = { userid: 1 };
         var newValues = { $set: userObj };
 
-        console.log('successfully connected to the user-account db');
+        console.log('successfully connected to the my-db db');
 
         db.collection('users').updateOne(query, newValues, {upsert: true}, function (err, res) {
             if (err) throw err;
