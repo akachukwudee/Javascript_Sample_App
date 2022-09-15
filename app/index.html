@@ -1,12 +1,4 @@
-<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sample JavaScript Form</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
   <style>
     .container {
         margin: 40px auto;
@@ -56,10 +48,10 @@
         const user = await response.json();
         console.log(JSON.stringify(user));
 
-        document.getElementById('fname').textContent = user.name ? user.name : 'Dee';
-        document.getElementById('lname').textContent = user.name ? user.name : 'Akachukwu';
+        document.getElementById('fname').textContent = user.fname ? user.fname : 'Dee';
+        document.getElementById('lname').textContent = user.lname ? user.lname : 'Akachukwu';
         document.getElementById('email').textContent = user.email ? user.email : 'devopsdee@example.com';
-        document.getElementById('dob').textContent = user.interests ? user.interests : '13-10-2021';
+        document.getElementById('dob').textContent = user.dob ? user.dob : '13-10-2021';
 
         const cont = document.getElementById('container');
         cont.style.display = 'block';
@@ -70,10 +62,10 @@
         const cont = document.getElementById('container');
 
         const payload = {
-            name: document.getElementById('input-fname').value, 
-            name: document.getElementById('input-lname').value, 
+            fname: document.getElementById('input-fname').value, 
+            lname: document.getElementById('input-lname').value, 
             email: document.getElementById('input-email').value, 
-            interests: document.getElementById('input-dob').value
+            dob: document.getElementById('input-dob').value
         };
         
         const response = await fetch('http://localhost:3000/update-profile', {
@@ -89,7 +81,7 @@
         document.getElementById('fname').textContent = jsonResponse.fname;
         document.getElementById('lname').textContent = jsonResponse.lname;
         document.getElementById('email').textContent = jsonResponse.email;
-        document.getElementById('dob').textContent = jsonResponse.interests;
+        document.getElementById('dob').textContent = jsonResponse.dob;
 
         cont.style.display = 'block';
         contEdit.style.display = 'none';
