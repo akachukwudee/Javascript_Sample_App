@@ -22,7 +22,7 @@ services:
     depends_on:
       - "mongodb"
   my-app:
-    image: 401602273424.dkr.ecr.us-east-1.amazonaws.com/$BUILD_ID
+    image: 401602273424.dkr.ecr.us-east-1.amazonaws.com/my-app:1.0
     restart: always
     ports:
       - 3000:3000
