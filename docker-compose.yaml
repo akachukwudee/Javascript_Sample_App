@@ -27,7 +27,7 @@ services:
     ports:
       - 3000:3000
     depends_on:
-      - "mongo-express"
+      - "mongodb"
   # my-app:
   #   image: my-app:1.0
   #   ports:
