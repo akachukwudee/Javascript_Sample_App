@@ -1,15 +1,8 @@
 version: '3'
 services:
-  my-app:
-    image: 401602273424.dkr.ecr.us-east-1.amazonaws.com/my-app:1.0
-    ports:
-      - 3000:3000    
-  # my-app:
-  #   image: my-app:1.0
-  #   ports:
-  #     - 3000:3000
   mongodb:
     image: mongo
+    restart: always
     ports:
       - 27017:27017
     environment:
@@ -26,6 +19,21 @@ services:
       - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
       - ME_CONFIG_MONGODB_ADMINPASSWORD=password
       - ME_CONFIG_MONGODB_SERVER=mongodb  
+    depends_on:
+      - "mongodb"
+  my-app:
+    image: 401602273424.dkr.ecr.us-east-1.amazonaws.com/my-app:1.0
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - "mongo-express"
+  # my-app:
+  #   image: my-app:1.0
+  #   ports:
+  #     - 3000:3000
+  #   depends_on:
+  #     - "mongo-express"
 volumes:
   mongo-data:
     driver: local
