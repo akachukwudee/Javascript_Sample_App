@@ -27,13 +27,21 @@ services:
     ports:
       - 3000:3000
     depends_on:
+<<<<<<< HEAD
       - "mongodb"
+=======
+      - "mongo-express"
+>>>>>>> 593539dddd4314ed7aefc9151c12a174224527dc
   # my-app:
   #   image: my-app:1.0
   #   ports:
   #     - 3000:3000
   #   depends_on:
+<<<<<<< HEAD
   #     - "mongodb"
+=======
+  #     - "mongo-express"
+>>>>>>> 593539dddd4314ed7aefc9151c12a174224527dc
 volumes:
   mongo-data:
     driver: local
